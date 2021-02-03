@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTrue;
     private Button btnWrong;
     private int mQuestionIndex;
+    private int mQuizQuestion;
 
     private QuizModel[] questionCollection = new QuizModel [] {
 
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
         mTxtQuestion = findViewById(R.id.txtQuestion);
         QuizModel q1 = questionCollection[mQuestionIndex];
-        mTxtQuestion.setText(q1.getQuestion());
+        mQuizQuestion = q1.getQuestion();
+        mTxtQuestion.setText(mQuizQuestion);
+
 
         btnTrue = findViewById(R.id.btnTrue);
         btnWrong = findViewById(R.id.btnWrong);
@@ -38,17 +41,24 @@ public class MainActivity extends AppCompatActivity {
         btnTrue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "btn True is tapped now!", Toast.LENGTH_LONG).show();
+                changeQuestionOnButtonClick();
             }
         });
 
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Log.i("myApp", "btn Wrong is tapped now!");
-                Toast.makeText(getApplicationContext(), "btn Wrong is tapped now!", Toast.LENGTH_LONG).show();
+                changeQuestionOnButtonClick();
             }
         });
 
     }
+
+    private void changeQuestionOnButtonClick(){
+
+        mQuestionIndex = (mQuestionIndex + 1) % 3;
+        mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
+        mTxtQuestion.setText(mQuizQuestion);
+    }
+
 }
