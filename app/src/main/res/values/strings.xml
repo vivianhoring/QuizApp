@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+
+    <string name="my_laptop_name">Macbook Pro</string>
+
+    <string name="correct_text">Correct!</string>
+    <string name="incorrect_text">Incorrect!</string>
+    <string name="first_score_text">0/10</string>
+    <string name="correct_toast_message">Not good!</string>
+
+    <string name="q1">A honey bee can fly at 15mph.</string>
+    <string name="q2">A jellyfish is approximately 95% water.</string>
+    <string name="q3">Elephants are the only mammals that can\'! jump.</string>
+
+
+
+</resources>
